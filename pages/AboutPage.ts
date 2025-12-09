@@ -138,7 +138,9 @@ export class AboutPage {
       name: /our advantages/i,
     });
 
-    this.cryptoTradingText = page.getByText(/crypto trading/i);
+    this.cryptoTradingText = page.getByRole('heading', {
+      name: /^crypto trading$/i,
+    });
 
     this.fiatOnOffRampHeading = page.getByRole('heading', {
       name: /fiat on and off ramp/i,

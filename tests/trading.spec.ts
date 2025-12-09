@@ -15,10 +15,8 @@ test.describe('Trading Functionality - Markets / Spot Trading Overview', () => {
   );
 
   test.beforeEach(async ({ page }) => {
-    const home = new HomePage(page);
-    await home.goto();
-
-    await home.clickTopNav('Markets');
+    const tradingPage = new TradingPage(page);
+    await tradingPage.goto('/markets');
 
     await expect(
       page,
@@ -65,11 +63,17 @@ test.describe('Trading Functionality - Markets / Spot Trading Overview', () => {
     }
   });
 
-  test('Trading pair data structure and presentation is correct', async ({ page }) => {
+  test('Trading pair data structure and presentation is correct', async ({ page, browserName }) => {
     const tradingPage = new TradingPage(page);
 
     const data = await tradingPage.getFirstTradingRowData();
     const cellTexts = data.cellContents;
+
+    if (data.rowCount === 0) {
+      throw new Error(
+        `PREREQUISITE FAILURE: No trading rows loaded on /markets page (browser=${browserName}). Cannot validate data structure.`
+      );
+    }
 
     expect(
       cellTexts.length,
@@ -81,12 +85,13 @@ test.describe('Trading Functionality - Markets / Spot Trading Overview', () => {
 
     expect(
       hasNameLikeCell,
-      'FAILURE: No cell in the row looks like an asset name with ticker (e.g. "Bitcoin\\nBTC").'
+      'FAILURE: The asset name cell does not contain the expected Ticker format (e.g. \\nBTC).'
     ).toBe(true);
 
     const hasNumericCell = cellTexts.some((text) =>
       /[\d,]+(\.\d+)?/.test(text.replace(/[^0-9.,$]/g, ''))
     );
+
     expect(
       hasNumericCell,
       'FAILURE: No cell in the row looks numeric (price or volume format).'
@@ -95,9 +100,11 @@ test.describe('Trading Functionality - Markets / Spot Trading Overview', () => {
     const hasPercentageCell = cellTexts.some((text) =>
       /^[+-]?\s*[\d.,]+%$/.test(text.trim())
     );
+
     expect(
       hasPercentageCell,
       'FAILURE: No cell in the row looks like a percentage change (e.g. +1.23%).'
     ).toBe(true);
   });
+
 });

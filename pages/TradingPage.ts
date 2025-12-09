@@ -48,7 +48,6 @@ export class TradingPage extends BasePage {
 
   /**
    * Returns locators for all expected category controls,
-   * driven from expectedContent.json (markets.trending.categories).
    */
   getCategoryControlLocators(): Locator[] {
     const categories: string[] = this.cfg.categories || [];
