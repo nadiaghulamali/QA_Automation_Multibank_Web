@@ -1,0 +1,117 @@
+{
+    "navigation": {
+        "items": [
+            "Dashboard",
+            "Markets",
+            "Trade",
+            "Features",
+            "About Us",
+            "Support"
+        ]
+    },
+    "markets": {
+        "trending": {
+            "heading": "Trending assets",
+            "categories": [
+                "Favorites",
+                "All",
+                "Top Gainers",
+                "Top Losers",
+                "Top Volume"
+            ],
+            "columns": [
+                "Coin Name",
+                "Price",
+                "1h %",
+                "7d %",
+                "Market Cap",
+                "Circulating Supply"
+            ],
+            "minRows": 1
+        }
+    },
+
+  "downloads": {
+        "appStoreLinkContains": "apple.com",
+        "googlePlayLinkContains": "play.google.com"
+    },
+    "aboutPage": {
+        "titleContains": "Why MultiBank",
+        "sectionsShouldContain": [
+            "Why MultiBank",
+            "Our Advantages",
+            "Security"
+        ]
+    },
+    "banners": {
+        "minBanners": 1
+    },
+    "directNav": {
+        "Dashboard": {
+            "url": "/",
+            "titleContains": "MultiBank.io - Home"
+        },
+        "Markets": {
+            "url": "/markets",
+            "titleContains": "Markets"
+        }
+    },
+    "menu": {
+        "Trade": {
+            "items": [
+                {
+                    "label": "Spot",
+                    "url": "/trade/BTC_USD",
+                    "titleContains": "BTC/USD MultiBank.io"
+                },
+                {
+                    "label": "Convert",
+                    "url": "/trade/convert",
+                    "titleContains": "Convert"
+                }
+            ]
+        },
+        "Features": {
+            "items": [
+                {
+                    "label": "Spot Exchange",
+                    "url": "/features/spot-exchange",
+                    "titleContains": "Trade on a Regulated Crypto Platform in UAE | MultiBank.io"
+                },
+                {
+                    "label": "Institutional",
+                    "url": "/features/institutional",
+                    "titleContains": "Institutional"
+                },
+                {
+                    "label": "Buy & Sell",
+                    "url": "/features/instant-buy",
+                    "titleContains": "Buy & Sell"
+                }
+            ]
+        },
+        "About Us": {
+            "items": [
+                {
+                    "label": "Why MultiBank",
+                    "url": "/en-AE",
+                    "titleContains": "Invest and Trade Bitcoin & Ethereum in UAE | MultiBank.io"
+                }
+            ]
+        },
+        "Support": {
+            "items": [
+                {
+                    "label": "FAQs",
+                    "url": "/support/faq",
+                    "titleContains": "FAQ"
+                },
+                {
+                    "label": "Contact Us",
+                    "url": "/support/contact-us",
+                    "titleContains": "Contact Us"
+                }
+            ]
+        }
+    }
+}
