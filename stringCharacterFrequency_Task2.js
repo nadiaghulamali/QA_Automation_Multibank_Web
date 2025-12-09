@@ -26,6 +26,6 @@ function characterFrequency(input) {
   return result;
 }
 
-const input = "nadia ali@ ali";
+const input = "nadia ali";
 const output = characterFrequency(input);
 console.log(output);
